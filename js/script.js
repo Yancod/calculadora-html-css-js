@@ -1,25 +1,43 @@
-const previosOperationText = document.querySelector("#operations-previos")
-const currentOperationText = document.querySelector("#operations-current")
-const bottons = document.querySelectorAll("#buttons-contener button")
+const previosOperationText = document.querySelector("#operations-previos");
+const currentOperationText = document.querySelector("#operations-current");
+const bottons = document.querySelectorAll("#buttons-contener button");
 
 class calculator {
     constructor(previosOperationText, currentOperationText) {
         this.previosOperationText = previosOperationText;
         this.currentOperationText = currentOperationText;
-        this.currentText = ""
+        this.currentText = "";
     }
 
     //Adiciona digito no visor
     addDigit(digit) {
         //Corrigindo erro de pontos ..
-        if(digit === "." && this.currentOperationText.innerText.includes(".")) {
+        if (digit === "." && this.currentOperationText.innerText.includes(".")) {
             return;
         }
         this.currentText = digit
-        this.updateScreen()
+        this.updateScreen();
+    }
+    processeOperation(operation) {
+        // pegar valores atuauis e anteriores
+        let operationValue
+        const anterior = +this.previosOperationText.innerText;
+        const atuais = +this.currentOperationText.innerText;
+        switch (operation) {
+            case "+":
+                operationValue = anterior + atuais
+                this.updateScreen(operationValue, operation, atuais, anterior);
+                break;
+            default:
+                return;
+        }
     }
 
-    updateScreen(){
+    updateScreen(
+        operationValue = null,
+        operation = null,
+        atuais = null,
+        anterior = null) {
         this.currentOperationText.innerText += this.currentText;
     }
 }
@@ -32,7 +50,7 @@ bottons.forEach((btn) => {
         if (+valorPego >= 0 || valorPego === ".") {
             calc.addDigit(valorPego);
         } else {
-            return null;
+            calc.processeOperation(valorPego);
         }
     })
 })
