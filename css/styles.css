@@ -34,3 +34,23 @@ body {
     font-weight: 300;
     color: var(--deep-grey);
 }
+
+#operations {
+    text-align: right;
+}
+
+#operations-previos,
+#operations-current {
+    padding: .2em;
+    overflow-wrap: break-word;
+    min-height: 1.6em;
+}
+
+#operations-previos {
+    color: var(--deep-grey);
+}
+
+#operations-current {
+    font-size: 3em;
+    font-weight: 700;
+}
