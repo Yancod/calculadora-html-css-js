@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-style: Helvetica;
+}
+
+body {
+    display: flex;
+    background-color: #333;
+    align-items: center;
+    justify-content: center;
+    padding: 3em;
+}
+
+:root {
+    --grey: #C4C4C4;
+    --deep-grey: #343434;
+    --light-grey: #ECECEC;
+    --black: #000000;
+}
+
+#calc {
+    width: 400px;
+    padding: .5em;
+    background-color: var(--grey);
+    color: var(--deep-grey);
+    display: flex;
+    flex-direction: column;
+}
+
+#calc h3 {
+    font-size: .6em;
+    font-weight: 300;
+    color: var(--deep-grey);
+}
