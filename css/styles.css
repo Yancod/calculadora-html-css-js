@@ -18,6 +18,7 @@ body {
     --deep-grey: #343434;
     --light-grey: #ECECEC;
     --black: #000000;
+    --white-ice: #cfcfcf;
 }
 
 #calc {
@@ -53,4 +54,35 @@ body {
 #operations-current {
     font-size: 3em;
     font-weight: 700;
+}
+
+#buttons-contener {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 3px;
+}
+
+#buttons-contener button {
+    border: 1px solid transparent;
+    border-radius: 0;
+    height: 4em;
+    font-size: 1.2em;
+    background-color: var(--white-ice);
+    cursor: pointer;
+}
+
+#buttons-contener .number {
+    background-color: #fff;
+}
+#buttons-contener button:hover{
+    background-color: var(--grey);
+    border-color: #000000;
+}
+#buttons-contener #icon-btm{
+    background-color: rgb(127, 240, 255);
+    grid-column: span 2;
+}
+
+#buttons-contener #icon-btm:hover{
+    background-color: rgb(48, 204, 225);
 }
